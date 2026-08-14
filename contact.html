@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Killian Russell</title>
+<meta name="description" content="Get in touch with Killian Russell — email, LinkedIn, GrabCAD.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+
+<style>
+  #hero{
+    padding-top:170px;
+    min-height:80vh;
+    display:flex;
+    align-items:center;
+  }
+  .contact-inner{ max-width:640px; }
+  .page-title{ font-size:clamp(36px,6vw,64px); margin-bottom:20px; }
+  .page-sub{ color:var(--muted); font-size:17px; margin-bottom:48px; max-width:520px; }
+
+  .contact-links{
+    border-top:1px solid var(--line-soft);
+    margin-bottom:40px;
+  }
+  .contact-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 0;
+    border-bottom:1px solid var(--line-soft);
+    transition:padding-left .2s;
+  }
+  .contact-row:hover{ padding-left:8px; }
+  .contact-row .k{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    color:var(--muted-2);
+    text-transform:uppercase;
+  }
+  .contact-row .v{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:20px;
+    font-weight:600;
+    color:var(--text);
+  }
+  .contact-row:hover .v{ color:var(--blue); }
+  .contact-row .arrow{ color:var(--muted-2); font-size:18px; transition:transform .2s, color .2s; }
+  .contact-row:hover .arrow{ color:var(--blue); transform:translateX(4px); }
+
+  .contact-meta{
+    color:var(--muted);
+    font-size:14px;
+    margin-bottom:32px;
+  }
+  .contact-meta strong{ color:var(--text); font-weight:500; }
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<header>
+  <div class="nav-inner">
+    <a class="brand" href="about.html">KILLIAN<span class="dot">.</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">MENU</button>
+    <ul id="navList">
+      <li><a href="about.html">01 About</a></li>
+      <li><a href="works.html">02 Works</a></li>
+      <li><a href="industry.html">03 Industry</a></li>
+      <li><a href="sport.html">04 Sport</a></li>
+      <li><a href="contact.html" class="active">05 Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+<section id="hero">
+  <div class="wrap">
+    <div class="contact-inner">
+      <div class="eyebrow">Get In Touch</div>
+      <h1 class="page-title">Let's build<br>something together.</h1>
+      <p class="page-sub">Open to graduate and placement opportunities in mechanical design, manufacturing engineering, and renewable energy systems. Based in Kells, Co. Meath, Ireland.</p>
+
+      <div class="contact-links">
+        <a href="mailto:killian.russell6@mail.dcu.ie" class="contact-row reveal">
+          <div><div class="k">Email</div><div class="v">killian.russell6@mail.dcu.ie</div></div>
+          <span class="arrow">→</span>
+        </a>
+        <a href="https://www.linkedin.com/in/killian-russell" target="_blank" rel="noopener" class="contact-row reveal">
+          <div><div class="k">LinkedIn</div><div class="v">linkedin.com/in/killian-russell</div></div>
+          <span class="arrow">→</span>
+        </a>
+        <a href="https://grabcad.com/killian.russell-1" target="_blank" rel="noopener" class="contact-row reveal">
+          <div><div class="k">GrabCAD</div><div class="v">grabcad.com/killian.russell-1</div></div>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+
+      <a href="https://www.linkedin.com/in/killian-russell" target="_blank" rel="noopener" class="btn btn-primary">Let's Collaborate</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>© 2026 KILLIAN RUSSELL.</div>
+    <div><a href="mailto:killian.russell6@mail.dcu.ie">EMAIL</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/killian-russell" target="_blank" rel="noopener">LINKEDIN</a> &nbsp;·&nbsp; <a href="https://grabcad.com/killian.russell-1" target="_blank" rel="noopener">GRABCAD</a></div>
+  </div>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navList = document.getElementById('navList');
+  navToggle.addEventListener('click', () => {
+    const open = navList.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navList.classList.remove('open');
+    navToggle.setAttribute('aria-expanded','false');
+  }));
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+    });
+  }, {threshold:0.12});
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

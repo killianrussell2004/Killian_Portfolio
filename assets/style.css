@@ -1,0 +1,167 @@
+/* ============================================================
+   KILLIAN RUSSELL — PORTFOLIO
+   Shared design system across all pages.
+   Palette: blueprint/schematic — dark charcoal-blue, P&ID blue,
+   gauge amber. Type: Space Grotesk (display), Inter (body),
+   IBM Plex Mono (technical/data labels).
+   ============================================================ */
+
+:root{
+  --ink:#0A1116;
+  --panel:#101A21;
+  --panel-2:#0D161C;
+  --line:#26404D;
+  --line-soft:#1A2E38;
+  --blue:#5B9BFF;
+  --amber:#F0A73C;
+  --text:#E8EEF1;
+  --muted:#7C939C;
+  --muted-2:#4C606B;
+  --maxw:1180px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--blue); color:var(--ink);}
+h1,h2,h3{ font-family:'Space Grotesk',sans-serif; margin:0; letter-spacing:-0.01em; }
+.mono{ font-family:'IBM Plex Mono',monospace; letter-spacing:0.04em; }
+a{color:inherit; text-decoration:none;}
+img{max-width:100%; display:block;}
+
+.wrap{ max-width:var(--maxw); margin:0 auto; padding:0 32px; }
+
+/* ---------- background schematic grid ---------- */
+.grid-bg{
+  position:fixed; inset:0; z-index:0;
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size:64px 64px;
+  opacity:0.35;
+  mask-image:radial-gradient(ellipse 90% 60% at 50% 0%, black 40%, transparent 90%);
+  pointer-events:none;
+}
+
+/* ---------- nav ---------- */
+header{
+  position:fixed; top:0; left:0; right:0; z-index:50;
+  background:rgba(10,17,22,0.82);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line-soft);
+}
+.nav-inner{
+  max-width:var(--maxw); margin:0 auto; padding:18px 32px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.brand{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15px; letter-spacing:0.02em; }
+.brand .dot{color:var(--blue);}
+nav ul{ list-style:none; display:flex; gap:26px; margin:0; padding:0; }
+nav a{
+  font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.08em;
+  color:var(--muted); text-transform:uppercase; transition:color .2s; position:relative;
+}
+nav a:hover{color:var(--text);}
+nav a.active{color:var(--blue);}
+nav a.active::after{
+  content:''; position:absolute; left:0; right:0; bottom:-6px; height:1px; background:var(--blue);
+}
+.nav-toggle{display:none;}
+@media (max-width:760px){
+  nav ul{
+    position:fixed; top:58px; left:0; right:0; flex-direction:column;
+    background:var(--panel); border-bottom:1px solid var(--line-soft);
+    padding:20px 32px; gap:16px; transform:translateY(-140%); transition:transform .3s ease;
+  }
+  nav ul.open{transform:translateY(0);}
+  .nav-toggle{
+    display:block; background:none; border:1px solid var(--line); color:var(--text);
+    font-family:'IBM Plex Mono',monospace; font-size:11px; padding:8px 12px; cursor:pointer;
+  }
+}
+
+main{ position:relative; z-index:1; }
+section{ position:relative; z-index:1; padding:140px 0 100px; }
+section.tight{ padding-top:160px; padding-bottom:80px; }
+
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--blue);
+  letter-spacing:0.12em; text-transform:uppercase; display:flex; align-items:center; gap:10px; margin-bottom:20px;
+}
+.eyebrow::before{ content:''; width:24px; height:1px; background:var(--blue); }
+
+.sec-head{
+  display:flex; justify-content:space-between; align-items:flex-end;
+  margin-bottom:56px; gap:24px; flex-wrap:wrap;
+}
+.sec-head h2{ font-size:clamp(28px,4vw,42px); }
+.sec-note{
+  font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted-2);
+  max-width:280px; text-align:right;
+}
+@media (max-width:640px){ .sec-note{text-align:left;} }
+
+.btn{
+  font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:0.04em;
+  padding:14px 26px; border:1px solid var(--line); display:inline-flex; align-items:center; gap:10px; transition:all .2s;
+}
+.btn-primary{ background:var(--blue); color:var(--ink); border-color:var(--blue); font-weight:500; }
+.btn-primary:hover{ background:#78ADFF; border-color:#78ADFF; }
+.btn-ghost:hover{ border-color:var(--blue); color:var(--blue); }
+
+footer{
+  border-top:1px solid var(--line-soft); padding:28px 0; position:relative; z-index:1;
+}
+.footer-inner{
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+  font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--muted-2); letter-spacing:0.04em;
+}
+.footer-inner a{color:var(--muted); transition:color .2s;}
+.footer-inner a:hover{color:var(--blue);}
+
+.reveal{ opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.in{ opacity:1; transform:translateY(0); }
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  .reveal{ transition:none !important; opacity:1 !important; transform:none !important; }
+}
+:focus-visible{ outline:2px solid var(--blue); outline-offset:3px; }
+
+/* ---------- spec table (reused: About, Industry) ---------- */
+.spec-table{ border:1px solid var(--line-soft); background:var(--panel); }
+.spec-row{
+  display:flex; justify-content:space-between; padding:16px 20px;
+  border-bottom:1px solid var(--line-soft); font-size:13px; gap:16px;
+}
+.spec-row:last-child{border-bottom:none;}
+.spec-row .k{
+  font-family:'IBM Plex Mono',monospace; color:var(--muted-2); text-transform:uppercase;
+  letter-spacing:0.06em; font-size:11px; white-space:nowrap;
+}
+.spec-row .v{ color:var(--text); text-align:right; }
+
+/* ---------- chips ---------- */
+.chip{
+  font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.04em; color:var(--blue);
+  border:1px solid var(--line); padding:4px 9px; text-transform:uppercase; display:inline-block;
+}
+
+/* ---------- available banner (reused: About) ---------- */
+.availability{
+  border:1px solid var(--line-soft); background:var(--panel); padding:20px 24px;
+  display:flex; align-items:center; gap:12px; margin-top:24px;
+}
+.availability .status-dot{
+  width:8px; height:8px; border-radius:50%; background:#63D471; box-shadow:0 0 8px #63D471; flex:none;
+}
+.availability p{ margin:0; font-size:14px; color:var(--muted); }
+.availability strong{ color:var(--text); }

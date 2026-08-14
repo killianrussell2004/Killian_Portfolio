@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Killian Russell</title>
+<meta name="description" content="Killian Russell — MEng Mechanical & Sustainability Engineering student. Background, skills, and experience.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+
+<style>
+  #hero{ padding-top:170px; padding-bottom:0; }
+  .about-name{
+    font-size:clamp(38px,6vw,64px);
+    line-height:1.0;
+    margin-bottom:8px;
+  }
+  .about-role{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    color:var(--muted);
+    letter-spacing:0.04em;
+  }
+
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:60px;
+    align-items:start;
+  }
+  .about-text p{ color:var(--muted); font-size:16px; margin-bottom:18px; }
+  .about-text strong{ color:var(--text); font-weight:500; }
+
+  .reach-out{ margin-top:32px; }
+  .reach-out .k{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.08em;
+    color:var(--muted-2); text-transform:uppercase; margin-bottom:8px;
+  }
+  .reach-out a{
+    font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:600; color:var(--blue);
+  }
+  .reach-out a:hover{ text-decoration:underline; }
+
+  /* photo slot */
+  .photo-frame{
+    position:relative;
+    aspect-ratio:4/5;
+    border:1px solid var(--line-soft);
+    background:var(--panel);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:28px;
+    overflow:hidden;
+  }
+  .photo-frame img{ width:100%; height:100%; object-fit:cover; }
+  .photo-frame .corner{
+    position:absolute; width:18px; height:18px; border:1px solid var(--blue); opacity:0.7;
+  }
+  .photo-frame .corner.tl{ top:10px; left:10px; border-right:none; border-bottom:none; }
+  .photo-frame .corner.tr{ top:10px; right:10px; border-left:none; border-bottom:none; }
+  .photo-frame .corner.bl{ bottom:10px; left:10px; border-right:none; border-top:none; }
+  .photo-frame .corner.br{ bottom:10px; right:10px; border-left:none; border-top:none; }
+  .photo-frame .placeholder-label{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--muted-2);
+    text-align:center; letter-spacing:0.06em; padding:0 20px;
+  }
+
+  /* tag groups */
+  .tag-group{ margin-bottom:22px; }
+  .tag-group .k{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.08em;
+    color:var(--muted-2); text-transform:uppercase; margin-bottom:10px;
+  }
+  .tag-row{ display:flex; flex-wrap:wrap; gap:8px; }
+
+  .interests-line{
+    color:var(--muted); font-size:14px; line-height:1.9;
+  }
+  .interests-line span{ color:var(--text); }
+  .interests-line span::after{ content:'  ·  '; color:var(--muted-2); }
+  .interests-line span:last-child::after{ content:''; }
+
+  @media (max-width:820px){
+    .about-grid{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<header>
+  <div class="nav-inner">
+    <a class="brand" href="about.html">KILLIAN<span class="dot">.</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">MENU</button>
+    <ul id="navList">
+      <li><a href="about.html" class="active">01 About</a></li>
+      <li><a href="works.html">02 Works</a></li>
+      <li><a href="industry.html">03 Industry</a></li>
+      <li><a href="sport.html">04 Sport</a></li>
+      <li><a href="contact.html">05 Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+<section id="hero">
+  <div class="wrap">
+    <div class="eyebrow">Biography</div>
+    <h1 class="about-name">Killian Russell</h1>
+    <div class="about-role">MEng MECHANICAL &amp; SUSTAINABILITY ENGINEERING — DUBLIN CITY UNIVERSITY</div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="about-grid">
+
+      <div class="reveal">
+        <div class="about-text">
+          <p>I'm a hands-on Mechanical &amp; Sustainability Engineering student at Dublin City University, currently in second year with first-class academic performance — <strong>1.1, 3rd in class</strong>. My experience spans mechanical design, CAD modelling, fabrication, hydraulics, embedded electronics, simulation, and engineering documentation.</p>
+          <p>I like taking a design the whole way: from concept, through CAD and drawings, into fabrication, fit-up, inspection, and testing. I'm just as comfortable in a workshop or out in the field as I am with a SolidWorks assembly open on screen.</p>
+          <p>Outside coursework, that same instinct shows up everywhere — currently a ground-up restoration of a <strong>2003 Ford Ranger</strong>, years of hands-on hydraulic maintenance work, and a habit of turning ideas (like a 3D-printed wind turbine driving an Arduino-controlled water pump) into things that actually run.</p>
+          <p>I'm enthusiastic about mechanical design, manufacturing engineering, robotics, and renewable energy systems — and about solving real engineering problems from first principles rather than just from the textbook.</p>
+        </div>
+
+        <div class="reach-out">
+          <div class="k">Reach out</div>
+          <a href="mailto:killian.russell6@mail.dcu.ie">killian.russell6@mail.dcu.ie</a>
+        </div>
+
+        <div class="availability">
+          <span class="status-dot"></span>
+          <p><strong>Available for work.</strong> Open to graduate and placement opportunities in mechanical design and manufacturing engineering.</p>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="photo-frame">
+          <div class="corner tl"></div>
+          <div class="corner tr"></div>
+          <div class="corner bl"></div>
+          <div class="corner br"></div>
+          <div class="placeholder-label">ADD PHOTO<br>replace this div's contents with<br>&lt;img src="assets/photos/killian.jpg"&gt;</div>
+        </div>
+
+        <div class="spec-table" style="margin-bottom:28px;">
+          <div class="spec-row"><div class="k">Programme</div><div class="v">MEng Mechanical &amp; Sustainability Eng.</div></div>
+          <div class="spec-row"><div class="k">Institution</div><div class="v">Dublin City University</div></div>
+          <div class="spec-row"><div class="k">Standing</div><div class="v">1.1, 3rd in class</div></div>
+          <div class="spec-row"><div class="k">Placement</div><div class="v">Utilities Engineer Intern, WuXi Biologics</div></div>
+          <div class="spec-row"><div class="k">Based in</div><div class="v">Kells, Co. Meath, Ireland</div></div>
+        </div>
+
+        <div class="tag-group">
+          <div class="k">Industry</div>
+          <div class="tag-row">
+            <span class="chip">WuXi Biologics</span>
+            <span class="chip">CGN Europe Energy</span>
+            <span class="chip">Royal Breffni Tours</span>
+          </div>
+        </div>
+        <div class="tag-group">
+          <div class="k">Design</div>
+          <div class="tag-row">
+            <span class="chip">SolidWorks</span>
+            <span class="chip">Onshape</span>
+            <span class="chip">SimScale FEA/CFD</span>
+            <span class="chip">FMEA</span>
+          </div>
+        </div>
+        <div class="tag-group">
+          <div class="k">Fabrication</div>
+          <div class="tag-row">
+            <span class="chip">Sheet Metal</span>
+            <span class="chip">Welding</span>
+            <span class="chip">Hydraulics</span>
+            <span class="chip">3D Printing (FDM)</span>
+          </div>
+        </div>
+        <div class="tag-group">
+          <div class="k">Education</div>
+          <div class="tag-row">
+            <span class="chip">DCU MEng</span>
+            <span class="chip">O'Carolan College</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="eyebrow">Interests</div>
+    <p class="interests-line">
+      <span>Mechanical Design</span>
+      <span>Manufacturing Engineering</span>
+      <span>Robotics</span>
+      <span>Renewable Energy Systems</span>
+      <span>CNC Machining</span>
+      <span>Gaelic Football</span>
+      <span>Strength &amp; Conditioning</span>
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>© 2026 KILLIAN RUSSELL.</div>
+    <div><a href="mailto:killian.russell6@mail.dcu.ie">EMAIL</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/killian-russell" target="_blank" rel="noopener">LINKEDIN</a> &nbsp;·&nbsp; <a href="https://grabcad.com/killian.russell-1" target="_blank" rel="noopener">GRABCAD</a></div>
+  </div>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navList = document.getElementById('navList');
+  navToggle.addEventListener('click', () => {
+    const open = navList.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navList.classList.remove('open');
+    navToggle.setAttribute('aria-expanded','false');
+  }));
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+    });
+  }, {threshold:0.12});
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
