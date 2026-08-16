@@ -96,7 +96,7 @@
 <header>
   <div class="nav-inner">
     <a class="brand" href="about.html">KILLIAN<span class="dot">.</span></a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">MENU</button>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
     <ul id="navList">
       <li><a href="about.html" class="active">01 About</a></li>
       <li><a href="works.html">02 Works</a></li>
@@ -170,7 +170,6 @@
           <div class="tag-row">
             <span class="chip">SolidWorks</span>
             <span class="chip">Onshape</span>
-            <span class="chip">AutoCAD</span>
             <span class="chip">SimScale FEA/CFD</span>
             <span class="chip">FMEA</span>
           </div>
@@ -179,8 +178,7 @@
           <div class="k">Fabrication</div>
           <div class="tag-row">
             <span class="chip">Sheet Metal</span>
-            <span class="chip">Bodywork</span>
-            <span class="chip">Spraying</span>
+            <span class="chip">Welding</span>
             <span class="chip">Hydraulics</span>
             <span class="chip">3D Printing (FDM)</span>
           </div>
@@ -227,10 +225,12 @@
   const navList = document.getElementById('navList');
   navToggle.addEventListener('click', () => {
     const open = navList.classList.toggle('open');
+    navToggle.classList.toggle('open', open);
     navToggle.setAttribute('aria-expanded', open);
   });
   navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     navList.classList.remove('open');
+    navToggle.classList.remove('open');
     navToggle.setAttribute('aria-expanded','false');
   }));
 

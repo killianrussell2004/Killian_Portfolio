@@ -108,7 +108,7 @@
 <header>
   <div class="nav-inner">
     <a class="brand" href="index.html">KILLIAN<span class="dot">.</span></a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">MENU</button>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
     <ul id="navList">
       <li><a href="about.html">01 About</a></li>
       <li><a href="works.html">02 Works</a></li>
@@ -165,10 +165,12 @@
   const navList = document.getElementById('navList');
   navToggle.addEventListener('click', () => {
     const open = navList.classList.toggle('open');
+    navToggle.classList.toggle('open', open);
     navToggle.setAttribute('aria-expanded', open);
   });
   navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     navList.classList.remove('open');
+    navToggle.classList.remove('open');
     navToggle.setAttribute('aria-expanded','false');
   }));
 

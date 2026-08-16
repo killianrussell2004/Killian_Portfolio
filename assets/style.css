@@ -64,7 +64,13 @@ header{
 }
 .brand{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15px; letter-spacing:0.02em; }
 .brand .dot{color:var(--blue);}
-nav ul{ list-style:none; display:flex; gap:26px; margin:0; padding:0; }
+nav ul{
+  list-style:none; margin:0; padding:0; display:flex;
+  position:fixed; top:58px; left:0; right:0; flex-direction:column;
+  background:var(--panel); border-bottom:1px solid var(--line-soft);
+  padding:20px 32px; gap:16px; transform:translateY(-140%); transition:transform .3s ease;
+}
+nav ul.open{transform:translateY(0);}
 nav a{
   font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.08em;
   color:var(--muted); text-transform:uppercase; transition:color .2s; position:relative;
@@ -74,19 +80,16 @@ nav a.active{color:var(--blue);}
 nav a.active::after{
   content:''; position:absolute; left:0; right:0; bottom:-6px; height:1px; background:var(--blue);
 }
-.nav-toggle{display:none;}
-@media (max-width:760px){
-  nav ul{
-    position:fixed; top:58px; left:0; right:0; flex-direction:column;
-    background:var(--panel); border-bottom:1px solid var(--line-soft);
-    padding:20px 32px; gap:16px; transform:translateY(-140%); transition:transform .3s ease;
-  }
-  nav ul.open{transform:translateY(0);}
-  .nav-toggle{
-    display:block; background:none; border:1px solid var(--line); color:var(--text);
-    font-family:'IBM Plex Mono',monospace; font-size:11px; padding:8px 12px; cursor:pointer;
-  }
+.nav-toggle{
+  display:flex; flex-direction:column; justify-content:center; align-items:center; gap:5px;
+  background:none; border:none; cursor:pointer; padding:8px; width:34px; height:34px; flex:none;
 }
+.nav-toggle .bar{
+  width:22px; height:2px; background:var(--text); transition:transform .25s ease, opacity .2s ease;
+}
+.nav-toggle.open .bar:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.nav-toggle.open .bar:nth-child(2){ opacity:0; }
+.nav-toggle.open .bar:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
 
 main{ position:relative; z-index:1; }
 section{ position:relative; z-index:1; padding:140px 0 100px; }
