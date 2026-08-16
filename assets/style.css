@@ -64,9 +64,10 @@ header{
 }
 .brand{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14px; letter-spacing:0.02em; }
 .brand .dot{color:var(--blue);}
+.nav-menu-wrap{ position:relative; }
 #navList{
   list-style:none; margin:0; padding:0; display:flex;
-  position:fixed; top:54px; right:32px; left:auto; flex-direction:column;
+  position:absolute; top:calc(100% + 10px); right:0; left:auto; flex-direction:column;
   background:var(--panel); border:1px solid var(--line-soft);
   border-radius:4px; box-shadow:0 12px 28px rgba(0,0,0,0.45);
   padding:14px 18px; gap:12px; min-width:170px;
